@@ -19,10 +19,11 @@ conn = sqlite3.connect('new.db')
 
 with conn:
     cur = conn.cursor()
-    item = cur.typeof()
-    for item in fileList:
-        fileList = ('information.docx','Hello.txt','myImage.png', \
-            'myMovie.mpg','World.txt','data.pdf','myPhoto.jpg').format(item)
-        
-       
+    fileList = ('information.docx','Hello.txt','myImage.png', \
+            'myMovie.mpg','World.txt','data.pdf','myPhoto.jpg')
+
+    for file in fileList:
+        if file.endswith('.txt'):
+            cur.execute("INSERT INTO tbl_files(col_txt) VALUES (?)",(file)) 
+           
     
