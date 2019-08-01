@@ -9,14 +9,15 @@ abPath = os.path.join(fPath, fName)
 # open file
 dirs = os.listdir(abPath)
 
-# print files in directory
-for file in dirs:
-    print(file)
-
-# print file with time stamp
+# print files in directory with timestamp and end with .txt
 time = os.path.getmtime(abPath)
-
 for file in dirs:
-    print(file,time)
+    if file.endswith('.txt'):
+        print(file,time)
+
+
+
+
+
 
 
